@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.silencio.neon.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [],
+  "client": [
+    "MinecraftClientMixin",
+    "KeyboardMixin",
+    "InGameHudMixin",
+    "PlayerPositionFullPacketMixin",
+    "PlayerPositionPacketMixin",
+    "GameMenuScreenMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

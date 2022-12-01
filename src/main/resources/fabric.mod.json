@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "neon",
+  "version": "${version}",
+  "name": "Neon",
+  "description": "Experiments",
+  "authors": ["Silencio"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/neon/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "de.silencio.neon.client.NeonClient"
+    ],
+    "main": [
+      "de.silencio.neon.Neon"
+    ]
+  },
+  "mixins": [
+    "neon.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
