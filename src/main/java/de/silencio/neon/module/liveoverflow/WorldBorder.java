@@ -22,6 +22,7 @@ public class WorldBorder extends Module {
     @Override
     public void onDisable() {
         this.setEnabled(true);
+        this.setDisplayName(this.getName() + " is enabled");
         super.onDisable();
     }
 }

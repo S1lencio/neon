@@ -11,7 +11,8 @@
     "PlayerPositionFullPacketMixin",
     "PlayerPositionPacketMixin",
     "GameMenuScreenMixin",
-    "BlockMixin"
+    "BlockMixin",
+    "ClientConnectionInvoker"
   ],
   "server": [],
   "injectors": {

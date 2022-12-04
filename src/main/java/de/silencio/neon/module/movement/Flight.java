@@ -1,16 +1,9 @@
 package de.silencio.neon.module.movement;
 
-import de.silencio.neon.helper.RoundPosition;
 import de.silencio.neon.module.Module;
-import net.minecraft.entity.MovementType;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3i;
 import org.lwjgl.glfw.GLFW;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArgs;
-import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 public class Flight extends Module {
 
@@ -25,13 +18,14 @@ public class Flight extends Module {
     public void onTick() {
         if (flightTime == 50) {
 
-            //mc.player.applyMovementInput(new Vec3d(mc.player.getVelocity().x, -0.9, mc.player.getVelocity().z), 0.1F); // Works but not when moving upwards
             Vec3d velocity = mc.player.getVelocity();
             mc.player.setVelocity(velocity.x, -0.07, velocity.z);
-
+            //mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY()-0.9D, mc.player.getZ(), false));
             flightTime = 0;
         }
         mc.player.getAbilities().flying = true;
+        mc.player.setSilent(true);
+        mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.OnGroundOnly(true));
         flightTime++;
         super.onTick();
     }

@@ -52,6 +52,7 @@ public class ModuleManager {
         modules.add(new VClip());
         modules.add(new WorldBorder());
         modules.add(new XRay());
+        modules.add(new NoFall());
     }
 
 }
