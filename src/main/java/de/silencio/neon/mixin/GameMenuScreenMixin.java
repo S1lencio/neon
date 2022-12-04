@@ -1,6 +1,6 @@
 package de.silencio.neon.mixin;
 
-import de.silencio.neon.helper.NeonScreen;
+import de.silencio.neon.ui.screens.NeonScreen;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;

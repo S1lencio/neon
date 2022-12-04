@@ -6,7 +6,7 @@ import org.lwjgl.glfw.GLFW;
 public class Sprint extends Module {
 
     public Sprint() {
-        super("Sprint", "Automatically sprint", Category.MOVEMENT);
+        super("Sprint", "sprint", "Automatically sprint", Category.MOVEMENT, Type.TOGGLE, false);
         this.setKey(GLFW.GLFW_KEY_H);
     }
 

@@ -12,8 +12,6 @@ import org.lwjgl.glfw.GLFW;
 public class Neon implements ModInitializer {
 
     public static final Neon INSTANCE = new Neon();
-    public Logger logger = LogManager.getLogger(Neon.class);
-
     private MinecraftClient mc = MinecraftClient.getInstance();
 
     @Override
@@ -22,7 +20,7 @@ public class Neon implements ModInitializer {
     }
 
     public void onKeyPress(int key, int action) {
-        if (action == GLFW.GLFW_PRESS) {
+        if (action == GLFW.GLFW_PRESS && mc.inGameHud.getChatHud().getChatScreen() == null) {
             for (Module module : ModuleManager.INSTANCE.getModules()) {
                 if (key == module.getKey()) module.toggle();
             }

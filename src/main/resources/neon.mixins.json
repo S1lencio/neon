@@ -10,7 +10,8 @@
     "InGameHudMixin",
     "PlayerPositionFullPacketMixin",
     "PlayerPositionPacketMixin",
-    "GameMenuScreenMixin"
+    "GameMenuScreenMixin",
+    "BlockMixin"
   ],
   "server": [],
   "injectors": {
