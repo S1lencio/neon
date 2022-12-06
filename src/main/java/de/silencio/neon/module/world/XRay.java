@@ -66,18 +66,6 @@ public class XRay extends Module {
         return xrayBlocks.contains(state.getBlock().toString());
     }
 
-    //public void addXrayBlock(String block) {
-    //    this.xrayBlocks.add(block);
-    //}
-
-    //public void removeXrayBlock(String block) {
-    //    this.xrayBlocks.remove(block);
-    //}
-
-    //public HashSet<String> getXrayBlocks() {
-    //    return xrayBlocks;
-    //}
-
 
     @Override
     public void onEnable() {

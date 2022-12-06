@@ -12,7 +12,8 @@
     "PlayerPositionPacketMixin",
     "GameMenuScreenMixin",
     "BlockMixin",
-    "ClientConnectionInvoker"
+    "ClientConnectionInvoker",
+    "VehicleMovePacketMixin"
   ],
   "server": [],
   "injectors": {

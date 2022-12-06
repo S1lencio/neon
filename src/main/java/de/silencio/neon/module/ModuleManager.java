@@ -53,6 +53,6 @@ public class ModuleManager {
         modules.add(new WorldBorder());
         modules.add(new XRay());
         modules.add(new NoFall());
+        modules.add(new BoatFly());
     }
-
 }
