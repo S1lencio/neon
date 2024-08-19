@@ -18,6 +18,7 @@ public class Neon implements ModInitializer {
     public void onInitialize() {
         System.out.println("| Neon Initialized successfully!");
     }
+    
 
     public void onKeyPress(int key, int action) {
         if (action == GLFW.GLFW_PRESS && mc.inGameHud.getChatHud().getChatScreen() == null) {
