@@ -5,7 +5,7 @@ public class Setting {
     private String name;
     private boolean visible = true;
 
-    public  Setting(String name) {
+    public Setting(String name) {
         this.name = name;
     }
 

@@ -3,16 +3,13 @@
   "id": "neon",
   "version": "${version}",
   "name": "Neon",
-  "description": "Experiments",
+  "description": "A silly hacked client.",
   "authors": ["Silencio"],
   "contact": {},
   "license": "MIT",
   "icon": "assets/neon/icon.png",
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "de.silencio.neon.client.NeonClient"
-    ],
     "main": [
       "de.silencio.neon.Neon"
     ]
@@ -21,8 +18,8 @@
     "neon.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.10",
+    "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "1.19.2"
+    "minecraft": "${minecraft_version}"
   }
 }
