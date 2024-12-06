@@ -10,7 +10,7 @@ import java.util.List;
 public class ModuleManager {
 
     public static final ModuleManager INSTANCE = new ModuleManager();
-    private List<Module> modules = new ArrayList<>();
+    private final List<Module> modules = new ArrayList<>();
     public ModuleManager() {
         addModules();
     }

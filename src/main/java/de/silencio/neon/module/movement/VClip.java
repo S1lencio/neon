@@ -10,7 +10,6 @@ public class VClip extends Module {
 
     @Override
     public void onEnable() {
-        System.out.println("teleported, or should have");
         mc.player.setPosition(mc.player.getX(), mc.player.getY() + 5, mc.player.getZ());
         super.onEnable();
         this.setEnabled(false);

@@ -12,20 +12,23 @@ public class Module {
     private final Type type;
     private int key;
     private boolean enabled;
+
     protected MinecraftClient mc = MinecraftClient.getInstance();
+
     public Module(String name, String nameKey, String description, Category category, Type type, boolean defaultState) {
         this.name = name;
         this.nameKey = nameKey;
+        this.description = description;
+        this.category = category;
+        this.type = type;
+        this.enabled = defaultState;
+
         if (type == Type.TOGGLE) {
             if (defaultState) this.displayName = name + " is enabled";
             else this.displayName = name + " is disabled";
         } else {
             this.displayName = name;
         }
-        this.description = description;
-        this.category = category;
-        this.type = type;
-        this.enabled = defaultState;
     }
 
     public void toggle() {
@@ -43,58 +46,34 @@ public class Module {
         if (this.type == Type.TOGGLE) this.displayName = this.name + " is disabled";
     }
 
-    public void onTick() {
-
-    }
+    public void onTick() {}
 
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getNameKey() {
-        return nameKey;
-    }
+    public String getNameKey() { return nameKey; }
 
-    public void setNameKey(String nameKey) {
-        this.nameKey = nameKey;
-    }
+    public void setNameKey(String nameKey) { this.nameKey = nameKey; }
 
     public String getDisplayName() { return displayName; }
 
     public void setDisplayName(String displayName) { this.displayName = displayName; }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return description; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setDescription(String description) { this.description = description; }
 
-    public Category getCategory() {
-        return category;
-    }
+    public Category getCategory() { return category; }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+    public void setCategory(Category category) { this.category = category; }
 
-    public int getKey() {
-        return key;
-    }
+    public int getKey() { return key; }
 
-    public void setKey(int key) {
-        this.key = key;
-    }
+    public void setKey(int key) { this.key = key; }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+    public boolean isEnabled() { return enabled; }
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;

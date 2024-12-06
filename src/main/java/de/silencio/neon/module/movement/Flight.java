@@ -25,7 +25,7 @@ public class Flight extends Module {
         }
         mc.player.getAbilities().flying = true;
         mc.player.setSilent(true);
-        mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.OnGroundOnly(true, true));
+        mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.OnGroundOnly(true, mc.player.horizontalCollision));
         flightTime++;
         super.onTick();
     }

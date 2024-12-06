@@ -15,12 +15,9 @@ public class InGameHudMixin {
 
     @Inject(method = "render", at = @At("RETURN"))
     public void renderHud(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
-        // Extract matrices from the DrawContext if necessary
         MatrixStack matrices = context.getMatrices();
-        // Retrieve tickDelta from the RenderTickCounter
         float tickDelta = tickCounter.getTickDelta(true);
 
-        // Pass the parameters to your custom HUD renderer
         Hud.render(matrices, tickDelta, context);
     }
 }

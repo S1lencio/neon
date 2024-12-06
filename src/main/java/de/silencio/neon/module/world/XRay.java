@@ -49,6 +49,8 @@ public class XRay extends Module {
         xrayBlocks.add("Block{minecraft:chest}");
         xrayBlocks.add("Block{minecraft:trapped_chest}");
         xrayBlocks.add("Block{minecraft:mob_spawner}");
+        xrayBlocks.add("Block{minecraft:trial_spawner}");
+        xrayBlocks.add("Block{minecraft:vault}");
         xrayBlocks.add("Block{minecraft:spawner}");
         xrayBlocks.add("Block{minecraft:bookshelf}");
         xrayBlocks.add("Block{minecraft:ancient_debris}");
@@ -70,9 +72,7 @@ public class XRay extends Module {
     public void onEnable() {
         defaultGamma = client.options.getGamma().getValue();
         client.options.getGamma().setValue(1000D);
-        if (client.player != null) {
-            client.player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, Integer.MAX_VALUE));
-        }
+        if (client.player != null) client.player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, Integer.MAX_VALUE));
         mc.worldRenderer.reload();
         super.onEnable();
     }
@@ -80,9 +80,7 @@ public class XRay extends Module {
     @Override
     public void onDisable() {
         client.options.getGamma().setValue(defaultGamma);
-        if (client.player != null) {
-            client.player.removeStatusEffectInternal(StatusEffects.NIGHT_VISION);
-        }
+        if (client.player != null) client.player.removeStatusEffectInternal(StatusEffects.NIGHT_VISION);
         mc.worldRenderer.reload();
         super.onDisable();
     }

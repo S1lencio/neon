@@ -26,9 +26,7 @@ public class BoatFly extends Module {
 
     @Override
     public void onTick() {
-
-        if(!mc.player.hasVehicle())
-            return;
+        if(!mc.player.hasVehicle()) return;
 
         Entity vehicle = mc.player.getVehicle();
         Vec3d velocity = vehicle.getVelocity();
@@ -39,14 +37,11 @@ public class BoatFly extends Module {
         double motionZ = velocity.z;
 
         // up/down
-        if(mc.options.jumpKey.isPressed())
-            motionY = upwardsSpeed;
-        else if(mc.options.sprintKey.isPressed())
-            motionY = velocity.y;
+        if(mc.options.jumpKey.isPressed()) motionY = upwardsSpeed;
+        else if(mc.options.sprintKey.isPressed()) motionY = velocity.y;
 
         // forward
-        if(mc.options.forwardKey.isPressed())
-        {
+        if(mc.options.forwardKey.isPressed()) {
             double speed = forwardsSpeed;
             float yawRad = vehicle.getYaw() * MathHelper.RADIANS_PER_DEGREE;
 
