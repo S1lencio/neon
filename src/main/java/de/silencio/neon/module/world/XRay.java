@@ -3,7 +3,6 @@ package de.silencio.neon.module.world;
 import de.silencio.neon.module.Module;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import org.lwjgl.glfw.GLFW;

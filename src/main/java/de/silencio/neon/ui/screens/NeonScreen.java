@@ -10,8 +10,6 @@ import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.world.GameMode;
 
-import java.awt.*;
-
 public class NeonScreen extends Screen {
 
     private final Screen parent;
@@ -99,22 +97,6 @@ public class NeonScreen extends Screen {
             indexExploit++;
         }
 
-        /// LIVEOVERFLOW
-        int indexLiveOverflow = 0;
-        for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.LIVEOVERFLOW)) {
-            this.addDrawableChild(ButtonWidget.builder(
-                                    Text.literal(module.getDisplayName()),
-                                    button -> {
-                                        module.toggle();
-                                        this.clearAndInit();
-                                    }
-                            )
-                            .dimensions(450, 30 + indexLiveOverflow * 30, 100, 20)
-                            .build()
-            );
-            indexLiveOverflow++;
-        }
-
         /// OTHER
         int indexOther = 0;
         for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.OTHER)) {
@@ -132,7 +114,7 @@ public class NeonScreen extends Screen {
                                                 this.clearAndInit();
                                             }
                                     )
-                                    .dimensions(560, 30 + (indexOther + i) * 30, 100, 20)
+                                    .dimensions(450, 30 + (indexOther + i) * 30, 100, 20)
                                     .build()
                     );
                 }

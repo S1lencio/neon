@@ -1,12 +1,6 @@
 package de.silencio.neon.module.movement;
 
 import de.silencio.neon.module.Module;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.command.WorldBorderCommand;
-import net.minecraft.world.border.WorldBorder;
-import net.minecraft.world.border.WorldBorderListener;
-import net.minecraft.world.border.WorldBorderStage;
 
 public class VClip extends Module {
 

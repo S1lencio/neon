@@ -5,11 +5,11 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
   "client": [
-    "MinecraftClientMixin",
-    "KeyboardMixin",
-    "InGameHudMixin",
+    "BlockMixin",
     "GameMenuScreenMixin",
-    "BlockMixin"
+    "InGameHudMixin",
+    "KeyboardMixin",
+    "MinecraftClientMixin"
   ],
   "server": [],
   "injectors": {

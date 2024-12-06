@@ -2,7 +2,6 @@ package de.silencio.neon;
 
 import de.silencio.neon.module.Module;
 import de.silencio.neon.module.ModuleManager;
-
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import org.lwjgl.glfw.GLFW;

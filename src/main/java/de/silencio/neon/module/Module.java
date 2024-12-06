@@ -1,6 +1,5 @@
 package de.silencio.neon.module;
 
-import com.mojang.datafixers.FunctionType;
 import net.minecraft.client.MinecraftClient;
 
 public class Module {
@@ -10,7 +9,7 @@ public class Module {
     private String displayName;
     private String description;
     private Category category;
-    private Type type;
+    private final Type type;
     private int key;
     private boolean enabled;
     protected MinecraftClient mc = MinecraftClient.getInstance();
@@ -104,6 +103,6 @@ public class Module {
         else onDisable();
     }
 
-    public enum Category { COMBAT, MOVEMENT, RENDER, EXPLOIT, WORLD, LIVEOVERFLOW, OTHER }
+    public enum Category { COMBAT, MOVEMENT, RENDER, EXPLOIT, WORLD, OTHER }
     public enum Type { TOGGLE, SWITCH, BUTTON }
 }

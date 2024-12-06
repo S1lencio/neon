@@ -5,11 +5,7 @@ import de.silencio.neon.module.ModuleManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.TextColor;
-import net.minecraft.text.TextContent;
-import net.minecraft.util.Formatting;
 
-import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
 
