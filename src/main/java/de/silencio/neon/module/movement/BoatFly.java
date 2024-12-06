@@ -8,7 +8,7 @@ import net.minecraft.util.math.Vec3d;
 public class BoatFly extends Module {
 
     Double upwardsSpeed = 3.0;
-    Double forwardsSpeed = 3.0;
+    Double forwardsSpeed = 6.0;
 
     public BoatFly() {
         super("BoatFly", "boatfly", "Allows you to fly with your boat", Category.MOVEMENT, Type.TOGGLE, false);
