@@ -10,6 +10,8 @@ import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.world.GameMode;
 
+import java.awt.*;
+
 public class NeonScreen extends Screen {
 
     private final Screen parent;
@@ -21,115 +23,134 @@ public class NeonScreen extends Screen {
         this.settings = gameOptions;
     }
 
+    @Override
     protected void init() {
         // BACK BUTTON
-        this.addDrawableChild(new ButtonWidget(10, this.height-30, 50, 20, ScreenTexts.BACK,
-                button -> { this.client.setScreen(this.parent); }
-        ));
+        this.addDrawableChild(ButtonWidget.builder(
+                                ScreenTexts.BACK,
+                                button -> this.client.setScreen(this.parent)
+                        )
+                        .dimensions(10, this.height - 30, 50, 20)
+                        .build()
+        );
 
         // MODULE TOGGLES
         /// MOVEMENT
         int indexMovement = 0;
         for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.MOVEMENT)) {
-            this.addDrawableChild(new ButtonWidget(10, 30+indexMovement*30, 100, 20, Text.literal(module.getDisplayName()),
-                    button -> {
-                        module.toggle();
-                        this.clearAndInit();
-                    }
-            ));
+            this.addDrawableChild(ButtonWidget.builder(
+                                    Text.literal(module.getDisplayName()),
+                                    button -> {
+                                        module.toggle();
+                                        this.clearAndInit();
+                                    }
+                            )
+                            .dimensions(10, 30 + indexMovement * 30, 100, 20)
+                            .build()
+            );
             indexMovement++;
         }
 
         /// COMBAT
         int indexCombat = 0;
         for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.COMBAT)) {
-            this.addDrawableChild(new ButtonWidget(120, 30+indexCombat*30, 100, 20, Text.literal(module.getDisplayName()),
-                    button -> {
-                        module.toggle();
-                        this.clearAndInit();
-                    }
-            ));
+            this.addDrawableChild(ButtonWidget.builder(
+                                    Text.literal(module.getDisplayName()),
+                                    button -> {
+                                        module.toggle();
+                                        this.clearAndInit();
+                                    }
+                            )
+                            .dimensions(120, 30 + indexCombat * 30, 100, 20)
+                            .build()
+            );
             indexCombat++;
         }
 
         /// RENDER
         int indexRender = 0;
         for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.RENDER)) {
-            this.addDrawableChild(new ButtonWidget(230, 30+indexRender*30, 100, 20, Text.literal(module.getDisplayName()),
-                    button -> {
-                        module.toggle();
-                        this.clearAndInit();
-                    }
-            ));
+            this.addDrawableChild(ButtonWidget.builder(
+                                    Text.literal(module.getDisplayName()),
+                                    button -> {
+                                        module.toggle();
+                                        this.clearAndInit();
+                                    }
+                            )
+                            .dimensions(230, 30 + indexRender * 30, 100, 20)
+                            .build()
+            );
             indexRender++;
         }
 
         /// EXPLOIT
         int indexExploit = 0;
         for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.EXPLOIT)) {
-            this.addDrawableChild(new ButtonWidget(340, 30+indexExploit*30, 100, 20, Text.literal(module.getDisplayName()),
-                    button -> {
-                        module.toggle();
-                        this.clearAndInit();
-                    }
-            ));
+            this.addDrawableChild(ButtonWidget.builder(
+                                    Text.literal(module.getDisplayName()),
+                                    button -> {
+                                        module.toggle();
+                                        this.clearAndInit();
+                                    }
+                            )
+                            .dimensions(340, 30 + indexExploit * 30, 100, 20)
+                            .build()
+            );
             indexExploit++;
         }
 
         /// LIVEOVERFLOW
         int indexLiveOverflow = 0;
         for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.LIVEOVERFLOW)) {
-            this.addDrawableChild(new ButtonWidget(450, 30+indexLiveOverflow*30, 100, 20, Text.literal(module.getDisplayName()),
-                    button -> {
-                        module.toggle();
-                        this.clearAndInit();
-                    }
-            ));
+            this.addDrawableChild(ButtonWidget.builder(
+                                    Text.literal(module.getDisplayName()),
+                                    button -> {
+                                        module.toggle();
+                                        this.clearAndInit();
+                                    }
+                            )
+                            .dimensions(450, 30 + indexLiveOverflow * 30, 100, 20)
+                            .build()
+            );
             indexLiveOverflow++;
         }
 
         /// OTHER
         int indexOther = 0;
         for (Module module : ModuleManager.INSTANCE.getModulesInCategory(Module.Category.OTHER)) {
-
             if (module.getNameKey().equals("clientgamemode")) {
-                this.addDrawableChild(new ButtonWidget(560, 30+indexOther*30, 100, 20, Text.literal("Set to Creative"),
-                        button -> {
-                            ClientGameMode.setGameMode(GameMode.CREATIVE);
-                            this.clearAndInit();
-                        }
-                ));
-                indexOther++;
-                this.addDrawableChild(new ButtonWidget(560, 30+indexOther*30, 100, 20, Text.literal("Set to Survival"),
-                        button -> {
-                            ClientGameMode.setGameMode(GameMode.SURVIVAL);
-                            this.clearAndInit();
-                        }
-                ));
-                indexOther++;
-                this.addDrawableChild(new ButtonWidget(560, 30+indexOther*30, 100, 20, Text.literal("Set to Adventure"),
-                        button -> {
-                            ClientGameMode.setGameMode(GameMode.ADVENTURE);
-                            this.clearAndInit();
-                        }
-                ));
-                indexOther++;
-                this.addDrawableChild(new ButtonWidget(560, 30+indexOther*30, 100, 20, Text.literal("Set to Spectator"),
-                        button -> {
-                            ClientGameMode.setGameMode(GameMode.SPECTATOR);
-                            this.clearAndInit();
-                        }
-                ));
-                indexOther++;
+                // Add specific game mode buttons
+                String[] gameModes = {"Creative", "Survival", "Adventure", "Spectator"};
+                GameMode[] gameModeValues = {GameMode.CREATIVE, GameMode.SURVIVAL, GameMode.ADVENTURE, GameMode.SPECTATOR};
+
+                for (int i = 0; i < gameModes.length; i++) {
+                    int finalI = i;
+                    this.addDrawableChild(ButtonWidget.builder(
+                                            Text.literal("Set to " + gameModes[i]),
+                                            button -> {
+                                                ClientGameMode.setGameMode(gameModeValues[finalI]);
+                                                this.clearAndInit();
+                                            }
+                                    )
+                                    .dimensions(560, 30 + (indexOther + i) * 30, 100, 20)
+                                    .build()
+                    );
+                }
+                indexOther += gameModes.length;
             } else {
-                this.addDrawableChild(new ButtonWidget(560, 30+(4+indexOther)*30, 100, 20, Text.literal(module.getDisplayName()),
-                        button -> {
-                            module.toggle();
-                            this.clearAndInit();
-                        }
-                ));
+                this.addDrawableChild(ButtonWidget.builder(
+                                        Text.literal(module.getDisplayName()),
+                                        button -> {
+                                            module.toggle();
+                                            this.clearAndInit();
+                                        }
+                                )
+                                .dimensions(560, 30 + (4 + indexOther) * 30, 100, 20)
+                                .build()
+                );
+                indexOther++;
             }
-            indexOther++;
         }
     }
+
 }

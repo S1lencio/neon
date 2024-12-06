@@ -13,10 +13,10 @@ public class NoFall extends Module {
     public void onTick() {
         if (this.isEnabled()) {
             if (mc.player != null) {
-                if (mc.player.fallDistance <= (mc.player.isFallFlying() ? 1.0f : 2.0f)) { return; }
-                if (mc.player.isFallFlying() && mc.player.isSneaking() && (mc.player.getVelocity().y < -0.5)) { return; }
+                if (mc.player.fallDistance <= (mc.player.isDescending() ? 1.0f : 2.0f)) { return; }
+                if (mc.player.isDescending() && mc.player.isSneaking() && (mc.player.getVelocity().y < -0.5)) { return; }
 
-                mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.OnGroundOnly(true));
+                mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.OnGroundOnly(true, true));
             }
         }
         super.onTick();

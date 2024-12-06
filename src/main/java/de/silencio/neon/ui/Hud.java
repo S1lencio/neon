@@ -3,6 +3,7 @@ package de.silencio.neon.ui;
 import de.silencio.neon.module.Module;
 import de.silencio.neon.module.ModuleManager;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.TextColor;
 import net.minecraft.text.TextContent;
@@ -14,13 +15,13 @@ import java.util.List;
 
 public class Hud {
 
-    private static MinecraftClient mc = MinecraftClient.getInstance();
+    private static final MinecraftClient mc = MinecraftClient.getInstance();
 
-    public static void render(MatrixStack matrices, float tickDelta) {
-        renderArrayList(matrices);
+    public static void render(MatrixStack matrices, float tickDelta, DrawContext context) {
+        renderArrayList(matrices, context);
     }
 
-    public static void renderArrayList(MatrixStack matrices) {
+    public static void renderArrayList(MatrixStack matrices, DrawContext context) {
         int index = 0;
         int sWidth = mc.getWindow().getScaledWidth();
         int sHeight = mc.getWindow().getScaledHeight();
@@ -29,7 +30,12 @@ public class Hud {
         enabled.sort(Comparator.comparingInt(m -> mc.textRenderer.getWidth(((Module)m).getDescription())).reversed());
 
         for (Module module : enabled) {
-            mc.textRenderer.drawWithShadow(matrices, module.getName(), (sWidth-4) - mc.textRenderer.getWidth(module.getName()), 10+(index*mc.textRenderer.fontHeight), -1);
+            // Inside your render or rendering-related method:
+            context.drawTextWithShadow(mc.textRenderer, module.getName(),
+                    (sWidth - 4) - mc.textRenderer.getWidth(module.getName()),
+                    10 + (index * mc.textRenderer.fontHeight),
+                    -1);
+
             index++;
         }
     }

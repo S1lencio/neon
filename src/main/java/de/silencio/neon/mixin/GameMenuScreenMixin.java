@@ -18,7 +18,14 @@ public abstract class GameMenuScreenMixin extends Screen {
 
     @Inject(at = @At("HEAD"), method = "initWidgets")
     private void initWidgets(CallbackInfo ci) {
-        this.addDrawableChild(new ButtonWidget(10, 20, 90, 20, Text.literal("Neon"),
-                button -> this.client.setScreen(new NeonScreen(this, this.client.options))));
+
+        ButtonWidget button = ButtonWidget.builder(
+                        Text.literal("Neon"),  // Button label
+                        buttonWidget -> this.client.setScreen(new NeonScreen(this, this.client.options)) // OnPress action
+                )
+                .dimensions(10, 20, 90, 20) // Position and size
+                .build();
+
+        this.addDrawableChild(button);
     }
 }

@@ -1,7 +1,5 @@
 package de.silencio.neon.module;
 
-import de.silencio.neon.module.liveoverflow.AntiHumanBypass;
-import de.silencio.neon.module.liveoverflow.WorldBorder;
 import de.silencio.neon.module.movement.*;
 import de.silencio.neon.module.other.ClientGameMode;
 import de.silencio.neon.module.world.XRay;
@@ -48,9 +46,7 @@ public class ModuleManager {
         modules.add(new Flight());
         modules.add(new Sprint());
         modules.add(new ClientGameMode());
-        modules.add(new AntiHumanBypass());
         modules.add(new VClip());
-        modules.add(new WorldBorder());
         modules.add(new XRay());
         modules.add(new NoFall());
         modules.add(new BoatFly());

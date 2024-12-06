@@ -8,12 +8,8 @@
     "MinecraftClientMixin",
     "KeyboardMixin",
     "InGameHudMixin",
-    "PlayerPositionFullPacketMixin",
-    "PlayerPositionPacketMixin",
     "GameMenuScreenMixin",
-    "BlockMixin",
-    "ClientConnectionInvoker",
-    "VehicleMovePacketMixin"
+    "BlockMixin"
   ],
   "server": [],
   "injectors": {
